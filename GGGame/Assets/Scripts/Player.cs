@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float movingSpeed = 5f;
+    [SerializeField] private float movingSpeed = 5f;
     private Rigidbody2D rb;
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         {
             inputVector.x = 1f;
         }
+        inputVector = inputVector.normalized;
         rb.MovePosition(rb.position + inputVector * (movingSpeed * Time.fixedDeltaTime));
     }
 }
